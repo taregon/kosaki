@@ -27,9 +27,9 @@ if (-Not (Get-Command "choco" -errorAction SilentlyContinue)) {
 # AJUSTES EN CHOCOLATELY
 # ==========================================================
 $ChocoDirCache = "$env:ALLUSERSPROFILE\ChocolateyAppsCache"
-$ChocoDirLog = "$ChocoDirCache/$env:COMPUTERNAME"
-$ChocoLibPath = "$env:ChocolateyInstall\lib"
-$ChocoLog = "$ChocoDirLog\chocolatey_log_$(Get-Date -UFormat "%Y-%m-%d").log"
+$ChocoDirLog   = "$ChocoDirCache/$env:COMPUTERNAME"
+$ChocoLibPath  = "$env:ChocolateyInstall\lib"
+$ChocoLog      = "$ChocoDirLog\chocolatey_log_$(Get-Date -UFormat "%Y-%m-%d").log"
 $ChocoTaskName = "Chocolatey Daily Upgrade"
 
 Write-Host "* Ruta para la descarga de Aplicaciones"
