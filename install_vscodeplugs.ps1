@@ -10,7 +10,7 @@
 # ----------------------------------------------------------
 # LISTADO DE EXTENSIONES
 # ----------------------------------------------------------
-$Plugins = @(
+$ExtensionPack = @(
     # ------------------------------------------------------
     # TEMAS
     # ------------------------------------------------------
@@ -71,21 +71,30 @@ $Plugins = @(
     "thang-nm.catppuccin-perfect-icons"            , # Iconos no oficiales de Catppuccin.
     "tyriar.sort-lines"                              # Ordena las líneas de texto
 )
-
-function Install-VSCodePlugs {
+# Ordena las extensiones por nombre y no por autor
+$ExtensionPack = $ExtensionPack | Sort-Object { $_.Split('.')[1] }
+# Mensaje antes de comenzar la instalación
+Write-Host "`n Instalando extensiones para VSCode " -ForegroundColor Black -BackgroundColor DarkCyan -NoNewline; Write-Host ([char]0xA0)
+# ----------------------------------------------------------
+# PROCESO DE INSTALACIÓN Y VERIFICACIÓN
+# ----------------------------------------------------------
+function Install-Extensions {
     param (
-        [String]$VSCodePlug
+        [String]$VSCodeExt
     )
-    code --install-extension $VSCodePlug | Out-Null
+    code --install-extension $VSCodeExt | Out-Null
+    $extName = $VSCodeExt.Split(".")[-1]                    # Imprime el nombre después del punto
+    $extName = $extName.Replace("-", " ")                   # Elimina los guiones
+    $extName = (Get-Culture).TextInfo.ToTitleCase($extName) # Capitaliza la primera letra
 
     if ($LASTEXITCODE -ne 0) {
-        Write-Host "[FALLO] No se pudo instalar: $VSCodePlug" -ForegroundColor DarkRed -NoNewline; Write-Host ([char]0xA0)
+        Write-Host "[FALLO] No se pudo instalar: $extName" -ForegroundColor DarkRed -NoNewline; Write-Host ([char]0xA0)
     }
     elseif ($LASTEXITCODE -eq 0) {
-        Write-Host "[ OK ] $VSCodePlug" -ForegroundColor DarkCyan -NoNewline; Write-Host ([char]0xA0)
+        Write-Host "[ OK ] $extName" -ForegroundColor DarkCyan -NoNewline; Write-Host ([char]0xA0)
     }
 }
 
-foreach ($Plug in $Plugins) {
-    Install-VSCodePlugs -VSCodePlug $Plug
+foreach ($Plug in $ExtensionPack) {
+    Install-Extensions -VSCodeExt $Plug
 }
