@@ -96,7 +96,6 @@ $Aplicaciones = @(
     "path-copy-copy",
     "lockhunter",
     "mremoteng",
-    "onecommander",
     "putty",
     "spek",
     # ------------------------------------------------------
