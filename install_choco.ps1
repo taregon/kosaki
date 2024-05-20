@@ -12,11 +12,11 @@
     https://chocolatey.org/packages
 #>
 # Fragmento obtenido de https://gist.github.com/apfelchips/792f7708d0adff7785004e9855794bc0
-# Revisa si PowerSHell esta como administrador
-#
-if (-Not( (New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)) ) {
-    Write-Error -Message "* * * Debes ejecutar PowerShell como Administrador * * *"
-    exit 1
+# Forzar la ejecución de PowerShell como Administrador
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    $arguments = "& '" + $myinvocation.mycommand.definition + "'"
+    Start-Process powershell -Verb runAs -ArgumentList $arguments
+    Break
 }
 if (-Not (Get-Command "choco" -errorAction SilentlyContinue)) {
     Write-Host "`n Instalando Chocolatey" -ForegroundColor Black -BackgroundColor Yellow -NoNewline; Write-Host ([char]0xA0)
