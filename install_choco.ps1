@@ -65,7 +65,6 @@ $Aplicaciones = @(
     "anydesk",
     "audacity",
     "chocolateygui",
-    "conemu",
     "dropbox",
     "f.lux",
     "foxitreader",
@@ -79,6 +78,9 @@ $Aplicaciones = @(
     "upscayl",
     "vlc",
     "vscode",
+    "lossless-cut",
+    "xnconvert",
+    "jpegview",
     # ------------------------------------------------------
     # NAVEGADORES
     # ------------------------------------------------------
@@ -93,7 +95,6 @@ $Aplicaciones = @(
     "fastcopy",
     "filezilla",
     "HashCheck",
-    "path-copy-copy",
     "lockhunter",
     "mremoteng",
     "putty",
