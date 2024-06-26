@@ -96,7 +96,7 @@ $Aplicaciones = @(
     "filezilla",
     "HashCheck",
     "lockhunter",
-    "mremoteng",k
+    "mremoteng",
     "putty",
     "spek",
     # ------------------------------------------------------
