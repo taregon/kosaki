@@ -51,7 +51,7 @@ $ExtensionPack = @(
     # EXTENSIONES
     # ------------------------------------------------------
     "aaron-bond.better-comments"                   , # Mejora los comentarios con ! * ? //
-    "dinhani.divider"                              , # Agrega líneas divisorias al código: CRTL + ALT + D
+    "dinhani.divider"                              , # Agrega líneas divisorias al código: CTRL + ALT + D
     "dmitrydorofeev.empty-indent"                  , # Elimina la indentación de líneas vacías al guardar el archivo.
     "eamodio.gitlens"                              , # Revisar
     "earshinov.simple-alignment"                   , # Permite alinear varias selecciones en columnas.

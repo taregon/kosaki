@@ -91,12 +91,12 @@ $Aplicaciones = @(
     # ------------------------------------------------------
     "advanced-ip-scanner",
     "autoruns",
-    "dupeguru",
+    "antidupl",
     "fastcopy",
     "filezilla",
     "HashCheck",
     "lockhunter",
-    "mremoteng",
+    "mremoteng",k
     "putty",
     "spek",
     # ------------------------------------------------------
